@@ -15,7 +15,7 @@ const App = () => {
       const respond = await fetch(api_url);
       const data = await respond.json();
       setCryptoData(data);
-      console.log(data)
+      // console.log(data)
       setFilteredData(data);
     }catch(error){
       console.error("Error fetching data: ", error);
@@ -32,14 +32,14 @@ const App = () => {
       coin.symbol.toLowerCase().includes(searchTerm.toLowerCase())
     )
 
-    // setFilteredData(filtered);
+    setFilteredData(filtered);
   }
 
   const sortData = () => {
     const sorted = [...filteredData].sort((a,b) => b.market_cap - a.market_cap);
     setFilteredData(sorted);
   }
-  console.log(filteredData)
+  // console.log(filteredData)
   const sortDataByPercentage = () => {
     const sorted = [...filteredData].sort((a,b) => a.market_cap_change_percentage_24h - b.market_cap_change_percentage_24h)
     setFilteredData(sorted)
